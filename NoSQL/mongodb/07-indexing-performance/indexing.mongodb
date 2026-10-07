@@ -1,0 +1,24 @@
+use college
+
+db.students.drop()
+db.students.insertMany([
+  { student_id: 101, name: "Arun", department: "Data Science", age: 22, marks: 85 },
+  { student_id: 102, name: "Priya", department: "Computer Science", age: 21, marks: 90 },
+  { student_id: 103, name: "Rahul", department: "Data Science", age: 23, marks: 78 },
+  { student_id: 104, name: "Divya", department: "Information Technology", age: 22, marks: 88 },
+  { student_id: 105, name: "Karthik", department: "Computer Science", age: 24, marks: 75 }
+])
+
+db.students.createIndex({ name: 1 })
+db.students.getIndexes()
+db.students.find({ name: "Priya" })
+db.students.find({ name: "Priya" }).explain("executionStats")
+
+db.students.createIndex({ marks: -1 })
+db.students.createIndex({ department: 1, marks: -1 })
+db.students.find({ department: "Data Science" }).sort({ marks: -1 })
+db.students.createIndex({ student_id: 1 }, { unique: true })
+
+// Drop by index name. Check getIndexes() first.
+db.students.getIndexes()
+db.students.dropIndex("name_1")

@@ -1,0 +1,36 @@
+use CompanyDB
+
+// Match
+ db.employees.aggregate([{ $match: { department: "IT" } }])
+ db.employees.aggregate([{ $match: { salary: { $gt: 60000 } } }])
+
+// Group
+ db.employees.aggregate([
+   { $group: { _id: "$department", TotalEmployees: { $sum: 1 } } }
+ ])
+
+// Project
+ db.employees.aggregate([
+   { $project: { _id: 0, name: 1, salary: 1 } }
+ ])
+
+// Sort, limit, skip
+ db.employees.aggregate([{ $sort: { salary: -1 } }])
+ db.employees.aggregate([{ $limit: 3 }])
+ db.employees.aggregate([{ $skip: 3 }])
+
+// Unwind skills
+ db.employees.aggregate([{ $unwind: "$skills" }])
+
+// Count
+ db.employees.aggregate([{ $count: "TotalEmployees" }])
+
+// Accumulators
+ db.employees.aggregate([{ $group: { _id: null, TotalSalary: { $sum: "$salary" } } }])
+ db.employees.aggregate([{ $group: { _id: null, AverageSalary: { $avg: "$salary" } } }])
+ db.employees.aggregate([{ $group: { _id: null, MinimumSalary: { $min: "$salary" } } }])
+ db.employees.aggregate([{ $group: { _id: null, MaximumSalary: { $max: "$salary" } } }])
+ db.employees.aggregate([{ $group: { _id: null, EmployeeNames: { $push: "$name" } } }])
+ db.employees.aggregate([{ $group: { _id: null, Cities: { $addToSet: "$city" } } }])
+ db.employees.aggregate([{ $group: { _id: null, SalaryDeviation: { $stdDevPop: "$salary" } } }])
+ db.employees.aggregate([{ $group: { _id: null, SalaryDeviation: { $stdDevSamp: "$salary" } } }])

@@ -1,0 +1,7 @@
+[
+  {"rollNo":101,"name":"John","age":20,"department":"Data Science","cgpa":8.9},
+  {"rollNo":102,"name":"Alice","age":21,"department":"AI","cgpa":9.1},
+  {"rollNo":103,"name":"David","age":22,"department":"Computer Science","cgpa":8.5},
+  {"rollNo":104,"name":"Sophia","age":20,"department":"Cyber Security","cgpa":9.3},
+  {"rollNo":105,"name":"Rahul","age":23,"department":"Data Science","cgpa":8.7}
+]

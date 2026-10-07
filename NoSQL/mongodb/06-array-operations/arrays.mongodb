@@ -1,0 +1,54 @@
+use CollegeDB
+
+db.students.drop()
+db.students.insertMany([
+  { student_id: 101, name: "Arun", department: "Data Science", skills: ["Python", "SQL", "MongoDB"], hobbies: ["Reading", "Cricket"] },
+  { student_id: 102, name: "Priya", department: "Data Science", skills: ["Python", "Machine Learning", "MongoDB"], hobbies: ["Music", "Drawing"] },
+  { student_id: 103, name: "Karthik", department: "Artificial Intelligence", skills: ["Python", "Deep Learning", "SQL"], hobbies: ["Cricket", "Gaming"] },
+  { student_id: 104, name: "Divya", department: "Data Science", skills: ["R", "Python", "Statistics"], hobbies: ["Reading", "Music"] },
+  { student_id: 105, name: "Rahul", department: "Artificial Intelligence", skills: ["Python", "TensorFlow", "Deep Learning"], hobbies: ["Gaming", "Football"] }
+])
+
+db.students.find({ skills: "Python" })
+db.students.find({ skills: { $all: ["Python", "SQL"] } })
+db.students.find({ skills: { $in: ["Python", "MongoDB"] } })
+db.students.find({ skills: { $size: 3 } })
+db.students.find({ skills: { $nin: ["MongoDB", "SQL"] } })
+
+db.students.updateOne(
+  { student_id: 102 },
+  { $push: { skills: { $each: ["Deep Learning", "Statistics"] } } }
+)
+
+db.students.updateOne(
+  { student_id: 101 },
+  { $pull: { skills: "Java" } }
+)
+
+db.students.updateOne(
+  { student_id: 101 },
+  { $pullAll: { skills: ["Python", "SQL"] } }
+)
+
+db.students.updateOne(
+  { student_id: 102 },
+  { $push: { skills: { $each: ["Java"], $position: 1 } } }
+)
+
+db.students.updateOne(
+  { student_id: 103 },
+  { $push: { skills: { $each: ["AWS", "Docker"], $slice: -3 } } }
+)
+
+db.students.updateOne(
+  { student_id: 101 },
+  { $set: { marks: [
+    { subject: "Python", mark: 85 },
+    { subject: "SQL", mark: 78 },
+    { subject: "MongoDB", mark: 92 }
+  ] } }
+)
+
+db.students.find({
+  marks: { $elemMatch: { subject: "MongoDB", mark: { $gt: 90 } } }
+})

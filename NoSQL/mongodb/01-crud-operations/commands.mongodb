@@ -1,0 +1,24 @@
+use studentDB
+
+db.students.drop()
+db.createCollection("students")
+
+db.students.insertMany([
+  { rollNo: 101, name: "John", age: 20, department: "Data Science", cgpa: 8.9 },
+  { rollNo: 102, name: "Alice", age: 21, department: "AI", cgpa: 9.1 },
+  { rollNo: 103, name: "David", age: 22, department: "Computer Science", cgpa: 8.5 },
+  { rollNo: 104, name: "Sophia", age: 20, department: "Cyber Security", cgpa: 9.3 }
+])
+
+db.students.find()
+db.students.findOne({ name: "John" })
+db.students.find({ cgpa: { $gt: 9 } })
+db.students.find({}, { _id: 0, name: 1, department: 1 })
+
+db.students.updateOne({ rollNo: 101 }, { $set: { cgpa: 9.2 } })
+db.students.updateMany({ age: 20 }, { $inc: { age: 1 } })
+db.students.find()
+
+db.students.deleteOne({ rollNo: 104 })
+db.students.deleteMany({ cgpa: { $lt: 9 } })
+db.students.countDocuments()

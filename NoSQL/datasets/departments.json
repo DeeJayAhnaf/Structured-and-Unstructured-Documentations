@@ -1,0 +1,6 @@
+[
+  {"dept_id":1,"department":"HR","location":"First Floor"},
+  {"dept_id":2,"department":"IT","location":"Second Floor"},
+  {"dept_id":3,"department":"Finance","location":"Third Floor"},
+  {"dept_id":4,"department":"Sales","location":"Fourth Floor"}
+]

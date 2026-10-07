@@ -1,0 +1,10 @@
+use studentDB
+
+db.students.find({ cgpa: { $gt: 9 } })
+db.students.find({ cgpa: { $gte: 8.5, $lte: 9.5 } })
+db.students.find({ department: { $in: ["AI", "Data Science"] } })
+db.students.find({ department: { $nin: ["AI"] } })
+db.students.find({ $and: [{ age: { $gte: 20 } }, { cgpa: { $gt: 8 } }] })
+db.students.find({ $or: [{ department: "AI" }, { cgpa: { $gt: 9 } }] })
+db.students.find({ name: { $regex: /^A/i } })
+db.students.find().sort({ cgpa: -1 }).limit(3)

@@ -1,0 +1,12 @@
+[
+  {"emp_id":101,"name":"John","department":"HR","designation":"Manager","salary":65000,"age":35,"city":"Chennai","skills":["Excel","Communication"],"dept_id":1},
+  {"emp_id":102,"name":"Alice","department":"IT","designation":"Developer","salary":70000,"age":28,"city":"Bangalore","skills":["Python","MongoDB","Java"],"dept_id":2},
+  {"emp_id":103,"name":"David","department":"IT","designation":"Developer","salary":72000,"age":30,"city":"Hyderabad","skills":["Python","NodeJS"],"dept_id":2},
+  {"emp_id":104,"name":"Sophia","department":"Finance","designation":"Accountant","salary":60000,"age":32,"city":"Chennai","skills":["Excel","Tally"],"dept_id":3},
+  {"emp_id":105,"name":"Michael","department":"Sales","designation":"Executive","salary":50000,"age":27,"city":"Coimbatore","skills":["Communication","Marketing"],"dept_id":4},
+  {"emp_id":106,"name":"Emma","department":"HR","designation":"Executive","salary":45000,"age":25,"city":"Madurai","skills":["Recruitment"],"dept_id":1},
+  {"emp_id":107,"name":"Daniel","department":"Finance","designation":"Manager","salary":80000,"age":40,"city":"Trichy","skills":["Finance","Excel"],"dept_id":3},
+  {"emp_id":108,"name":"Olivia","department":"Sales","designation":"Manager","salary":75000,"age":38,"city":"Bangalore","skills":["Sales","Leadership"],"dept_id":4},
+  {"emp_id":109,"name":"James","department":"IT","designation":"Tester","salary":55000,"age":29,"city":"Chennai","skills":["Testing","MongoDB"],"dept_id":2},
+  {"emp_id":110,"name":"Mia","department":"HR","designation":"Recruiter","salary":48000,"age":26,"city":"Salem","skills":["Communication","Hiring"],"dept_id":1}
+]

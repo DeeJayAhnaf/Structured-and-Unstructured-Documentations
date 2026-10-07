@@ -1,0 +1,37 @@
+use CompanyDB
+
+// Join employees with departments
+
+db.employees.aggregate([
+  {
+    $lookup: {
+      from: "departments",
+      localField: "dept_id",
+      foreignField: "dept_id",
+      as: "DepartmentInfo"
+    }
+  }
+])
+
+// Lookup + unwind + project
+
+db.employees.aggregate([
+  {
+    $lookup: {
+      from: "departments",
+      localField: "dept_id",
+      foreignField: "dept_id",
+      as: "DepartmentInfo"
+    }
+  },
+  { $unwind: "$DepartmentInfo" },
+  {
+    $project: {
+      _id: 0,
+      name: 1,
+      salary: 1,
+      department: "$DepartmentInfo.department",
+      location: "$DepartmentInfo.location"
+    }
+  }
+])
